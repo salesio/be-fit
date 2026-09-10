@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRight, HeartPulse, Leaf, MessageCircle, Mic2, ShoppingBag, Users } from 'lucide-react';
 
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { sitePath } from '@/lib/site-path';
 
 const whatsappUrl =
   'https://wa.me/258878175266?text=Ol%C3%A1%20Be%20Fit!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20servi%C3%A7os.';
@@ -33,24 +33,24 @@ export default function Home() {
                 bem-estar para ajudar a transformar intenção em rotina.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="#servicos"
+                <a
+                  href={sitePath('/#servicos')}
                   className={cn(
                     buttonVariants({ size: 'lg' }),
                     'h-12 rounded-full bg-[#087b47] px-6 text-base text-white shadow-[0_12px_35px_rgba(8,123,71,.24)] hover:bg-[#05683a]',
                   )}
                 >
                   Conhecer os serviços <ArrowRight />
-                </Link>
-                <Link
-                  href="/shop"
+                </a>
+                <a
+                  href={sitePath('/shop/')}
                   className={cn(
                     buttonVariants({ variant: 'outline', size: 'lg' }),
                     'h-12 rounded-full border-[#087b47]/25 bg-white/70 px-6 text-base text-[#075f39] hover:bg-white',
                   )}
                 >
                   Visitar a loja
-                </Link>
+                </a>
               </div>
               <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-[#486858]">
                 <span className="inline-flex items-center gap-2">
@@ -66,7 +66,7 @@ export default function Home() {
               <div className="absolute -inset-4 rotate-2 rounded-[2.3rem] bg-[linear-gradient(145deg,#b6ee35,#078b4a,#063c2c)] opacity-90" />
               <div className="relative overflow-hidden rounded-[2rem] border-[6px] border-white bg-[#d9efe1] shadow-[0_30px_80px_rgba(7,75,48,.22)]">
                 <Image
-                  src="/assets/gloria-speaking.jpg"
+                  src={sitePath('/assets/gloria-speaking.jpg')}
                   alt="Gloria Alberto Manhique durante uma apresentação da Be Fit"
                   width={1080}
                   height={1080}
@@ -79,7 +79,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute -bottom-8 -left-3 hidden rounded-2xl border border-white/80 bg-white p-4 shadow-xl sm:block">
-                <Image src="/assets/be-fit-logo.png" alt="Be Fit" width={150} height={72} className="h-12 w-auto object-contain" />
+                <Image src={sitePath('/assets/be-fit-logo.png')} alt="Be Fit" width={150} height={72} className="h-12 w-auto object-contain" />
               </div>
             </div>
           </div>
@@ -127,9 +127,9 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-[.18em] text-[#078c4b]">Loja Be Fit</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-.04em] text-[#073c2a] sm:text-5xl">Cada produto, agora com espaço para respirar.</h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#526d60]">O catálogo reúne sete suplementos da linha Be Fit. Veja cada embalagem, conheça a sua proposta e peça atendimento diretamente pelo WhatsApp.</p>
-              <Link href="/shop" className={cn(buttonVariants({ size: 'lg' }), 'mt-8 h-12 rounded-full bg-[#087b47] px-6 text-base text-white hover:bg-[#05683a]')}>
+              <a href={sitePath('/shop/')} className={cn(buttonVariants({ size: 'lg' }), 'mt-8 h-12 rounded-full bg-[#087b47] px-6 text-base text-white hover:bg-[#05683a]')}>
                 Ver os 7 produtos <ArrowRight />
-              </Link>
+              </a>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
               {[
@@ -138,7 +138,7 @@ export default function Home() {
                 ['/assets/products/acido-hialuronico.png', 'Ácido Hialurónico'],
               ].map(([src, alt], index) => (
                 <div key={src} className={cn('flex min-h-64 items-center justify-center rounded-[2rem] border border-[#0b5d3b]/10 bg-[linear-gradient(145deg,#f7ffeb,#eaf8ef)] p-4 shadow-[0_18px_55px_rgba(7,75,48,.08)]', index === 2 && 'col-span-2 sm:col-span-1')}>
-                  <Image src={src} alt={alt} width={420} height={560} className="max-h-56 w-auto object-contain drop-shadow-[0_16px_16px_rgba(7,60,42,.16)]" />
+                  <Image src={sitePath(src)} alt={alt} width={420} height={560} className="max-h-56 w-auto object-contain drop-shadow-[0_16px_16px_rgba(7,60,42,.16)]" />
                 </div>
               ))}
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-center">
             <div className="relative mx-auto w-full max-w-md">
               <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] bg-[linear-gradient(145deg,#b8ef35,#078c4b)]" />
-              <Image src="/assets/gloria-speaking.jpg" alt="Gloria Alberto Manhique a falar num evento" width={900} height={900} className="relative aspect-square w-full rounded-[2rem] object-cover" />
+              <Image src={sitePath('/assets/gloria-speaking.jpg')} alt="Gloria Alberto Manhique a falar num evento" width={900} height={900} className="relative aspect-square w-full rounded-[2rem] object-cover" />
             </div>
             <div className="lg:pl-8">
               <p className="text-sm font-semibold uppercase tracking-[.18em] text-[#078c4b]">Por detrás da Be Fit</p>

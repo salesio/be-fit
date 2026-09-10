@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowLeft, MessageCircle, ShieldCheck, ShoppingBag } from 'lucide-react';
 
 import { SiteFooter } from '@/components/site-footer';
@@ -8,6 +7,7 @@ import { SiteHeader } from '@/components/site-header';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { products, productWhatsappUrl } from '@/lib/products';
+import { sitePath } from '@/lib/site-path';
 
 export const metadata: Metadata = {
   title: 'Loja',
@@ -23,7 +23,7 @@ export default function ShopPage() {
           <div className="absolute -right-24 -top-28 h-96 w-96 rounded-full bg-[#b8ef35]/20 blur-3xl" />
           <div className="absolute -bottom-40 left-1/3 h-96 w-96 rounded-full bg-[#078c4b]/35 blur-3xl" />
           <div className="relative mx-auto max-w-7xl">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition-colors hover:text-white"><ArrowLeft className="size-4" /> Voltar ao início</Link>
+            <a href={sitePath('/')} className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition-colors hover:text-white"><ArrowLeft className="size-4" /> Voltar ao início</a>
             <div className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[.2em] text-[#b8ef35]">Loja Be Fit</p>
@@ -44,7 +44,7 @@ export default function ShopPage() {
               <article key={product.name} className={cn('group flex flex-col overflow-hidden rounded-[2rem] border border-[#0b5d3b]/10 bg-white shadow-[0_16px_55px_rgba(7,75,48,.07)] transition-transform duration-300 hover:-translate-y-1', index === products.length - 1 && 'sm:col-span-2 lg:col-span-1')}>
                 <div className="relative flex min-h-80 items-center justify-center overflow-hidden p-7" style={{ background: `linear-gradient(145deg, ${product.accent}, #f8fff9 75%)` }}>
                   <div className="absolute right-5 top-5 rounded-full bg-white/80 px-3 py-1.5 text-xs font-bold uppercase tracking-[.12em] text-[#0a6f43] backdrop-blur">{product.category}</div>
-                  <Image src={product.image} alt={`Embalagem de ${product.name}`} width={520} height={640} className="max-h-64 w-auto object-contain drop-shadow-[0_18px_20px_rgba(24,60,45,.22)] transition-transform duration-300 group-hover:scale-[1.04]" />
+                  <Image src={sitePath(product.image)} alt={`Embalagem de ${product.name}`} width={520} height={640} className="max-h-64 w-auto object-contain drop-shadow-[0_18px_20px_rgba(24,60,45,.22)] transition-transform duration-300 group-hover:scale-[1.04]" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h2 className="text-2xl font-semibold leading-tight tracking-[-.025em] text-[#073c2a]">{product.name}</h2>
