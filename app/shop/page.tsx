@@ -12,6 +12,31 @@ import { sitePath } from '@/lib/site-path';
 export const metadata: Metadata = {
   title: 'Loja',
   description: 'Conheça os suplementos disponíveis na loja Be Fit e peça atendimento pelo WhatsApp.',
+  alternates: { canonical: 'https://salesio.github.io/be-fit/shop/' },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_MZ',
+    url: 'https://salesio.github.io/be-fit/shop/',
+    siteName: 'Be Fit',
+    title: 'Loja Be Fit | Suplementos e bem-estar',
+    description: 'Conheça os suplementos disponíveis na loja Be Fit e peça atendimento pelo WhatsApp.',
+    images: [
+      {
+        url: 'https://salesio.github.io/be-fit/og.png',
+        secureUrl: 'https://salesio.github.io/be-fit/og.png',
+        width: 1851,
+        height: 840,
+        type: 'image/png',
+        alt: 'Be Fit — um caminho mais leve e um cuidado mais consciente',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Loja Be Fit | Suplementos e bem-estar',
+    description: 'Conheça os suplementos disponíveis na loja Be Fit e peça atendimento pelo WhatsApp.',
+    images: ['https://salesio.github.io/be-fit/og.png'],
+  },
 };
 
 export default function ShopPage() {
